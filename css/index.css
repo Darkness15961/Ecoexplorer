@@ -1,0 +1,79 @@
+:root {
+    color-scheme: dark;
+}
+
+
+.body {
+    margin: 0;
+    font-family: monospace;
+}
+
+.flexbox {
+    display: flex;
+} 
+
+.flexbox--centered-spaced {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container {
+    padding-inline: 1rem;
+    max-width: 1024px;
+    margin-inline: auto;
+}
+
+.nav {
+    padding-block: 1rem;
+}
+
+.hero {
+    padding-block: 8rem;
+    text-align: center;
+}
+
+.hero__title {
+    margin: 0;
+    font-size: 4rem;
+}
+
+.c-primary {
+    color: dark;
+}
+
+.link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.button {
+    padding: 0.5em 1em;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10%;
+}
+
+.button--primary {
+    background-color: green;
+    color: white;
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.g-2{
+    gap: 2.5rem;
+}
+
+
+    
