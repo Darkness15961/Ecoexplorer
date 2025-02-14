@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoXplorer</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body class="body">
     <header class="header">
         <nav class="nav">
             <div class="container flexbox flexbox--centered-spaced">
-                <a href="#" class="logo">
+                <a href="#">
                     <img src="./assets/img/hoja.svg" alt="logo ecoXplorer" width="50" height="60">
                 </a>
                 <ul class="list d-flex g-2">
@@ -24,18 +27,39 @@
                         <a href="#" class="link">Prototipado</a>
                     </li>
                 </ul>
-                <a href="#contact" class="button button--primary">Contactenos</a>
+                <a href="#contact" class="button button--outline-primary">Contactenos</a>
             </div>
         </nav>
     </header>
-    <main>
+    <main class="main">
         <article class="hero">
             <div class="container">
-                <h1 class="hero__title"><span class="c-primary">EcoXplorer</span></h1>
-                <p>El mejor Sistemas de monitore ambiental en tiempo real de la region</p>
-                <a href="#">Conoce mas </a>
+                <div class="d-flex f-direction-column a-items-center g-4">
+                            <h1 class="hero__title">
+                                Monitorea el planeta con <span class="c-primary">EcoExplorer</span>,
+                                tecnología para un futuro sostenible</h1>
+                            <p> Sistema de Monitoreo ambiental inteligente en tiempo real con sensores IoT de alta precisión.</p>
+                        <a href="#" class="button button--secondary button--beat">Conoce mas </a>
+                    </div>
             </div>
         </article>
+        <section class="section">
+            <div class="container g-layout g-layout--auto-fit-columns-lg">
+                <a href="#" class="card card--overlay">
+                    <div class="card__body">
+                        <img src="./assets/img/3.jfif" alt="Imagen Ecoexplorer"
+                        width="460" height="240" class="img img--background">
+                        <ul class="list d-flex g-2">
+                            <li class="badge badge--primary interactive interactive--sm">IoT</li>
+                            <li class="badge badge--primary interactive interactive--sm">IA</li>
+                            <li class="badge badge--primary interactive interactive--sm">Data</li>
+                        </ul>
+                        <h3 class="title title--xs">DashBoard</h3>
+                        <p class="title text--sm">Muestra de grafica de Datos</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 </body>
 </html>
