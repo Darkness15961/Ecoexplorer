@@ -1,0 +1,43 @@
+.d-flex {
+    display: flex;
+}
+
+.f-direction-column {
+    flex-direction: column;
+}
+
+.a-items-center {
+    align-items: center;
+}
+
+.g-1 {
+    gap: var(--size);
+}
+
+.g-2 {
+    gap: calc(var(--size) * 2);
+}
+
+.g-4 {
+    gap: calc(var(--size) * 4);
+}
+
+.g-5 {
+    gap: calc(var(--size) * 5);
+}
+
+.f-1 {
+    flex: 1;
+}
+
+.c-primary {
+    color: var(--secondary-color);
+}
+
+.c-white {
+    color: var(--white-color);
+}
+
+.c-alternative {
+    color: var(--alternative-color);
+}
