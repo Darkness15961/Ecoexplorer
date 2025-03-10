@@ -14,65 +14,119 @@
 <body class="body">
     <header class="header">
         <nav class="nav">
-            <div class="container flexbox flexbox--centered-spaced">
+            <div class="container flexbox flexbox--centered-spacing">
                 <a href="#">
-                    <img src="./assets/img/hoja.svg" alt="logo ecoXplorer" width="50" height="60">
+                    <img src="./assets/img/EcoexplorerLogo.svg" alt="logo ecoXplorer" width="100" height="70">
                 </a>
-                <ul class="list d-flex g-4">
+                <ul class="list list--menu flexbox flexbox--centered-spaced flexbox--responsive g-4"  id="menu">
                     <li>
-                        <a href="#" class="link">Tegnologia</a>
+                        <a href="#Nosotros" class="link">Compromiso</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Sensores</a>
+                        <a href="#Servicios" class="link">Servicios</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Prototipado</a>
+                        <a href="./Pages/Logros.html" class="link">Nosotros</a>
                     </li>
                 </ul>
-                <a href="#contact" class="button button--outline-primary ">Contactenos</a>
+                <div>
+                    <button onclick="location.href='#contact'" class="button c-button--gooey ">Contáctenos
+                        <div class="c-button__blobs">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </button>
+                    <a href="#menu" class="link title title--sm md:d-none">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </div>
+                </div>
             </div>
         </nav>
     </header>
     <main class="main">
-        <article class="hero">
-            <div class="container">
-                <div class="d-flex f-direction-column a-items-center g-4">
-                            <h1 class="hero__title">
-                                Monitorea el planeta con <span class="c-primary">EcoExplorer</span>,
-                                tecnología para un futuro sostenible</h1>
-                            <p> Sistema de Monitoreo ambiental inteligente en tiempo real con sensores IoT de alta precisión.</p>
-                        <a href="#" class="button button--secondary button--beat">Conoce mas </a>
+        <article class="vh">
+                <div class="container g-layout g-layout--center">
+                    <video class="video" autoplay muted playsinline loop
+                        src="https://agqlabs.es/wp-content/uploads/video-agricultura.mp4">
+                    </video>
+                    <div class="overlay d-flex ">
+                        <div>
+                            <img src="/Ecoexplorer/assets/img/ecowhite.svg" alt="Logo Agricultura" class="logo">
+                        </div>
+                        <div>
+                            <h1 class="hero__title">Ecoexplorer</h1>
+                            <p>Servicios analíticos y Monitoreo ambiental en tiempo real</p>
+                        </div>
                     </div>
+                </div>
+        </article>        
+        <article class="hero" id="Nosotros">
+            <div class="container">
+                <div class="d-flex f-direction-column a-items-center g-2">
+                    <a href="#">
+                        <img src="./assets/img/ecoxelestelogo.svg" alt="logo ecoXplorer" width="100" height="70">
+                    </a>
+                            <h1 class="hero__title">
+                                <span class="c-primary" >Nuestra tecnología al servicio del medio ambiente</span>
+                                </h1>
+                            <p>En EcoExplorer, nos especializamos en el monitoreo ambiental inteligente 
+                                para la sostenibilidad. Nuestros usuarios, desde investigadores hasta 
+                                instituciones gubernamentales y organizaciones ambientales, se benefician de la
+                                integración de sensores avanzados con tecnologías de análisis de datos, 
+                                proporcionando información precisa para la toma de decisiones.</p>
+                            
+                        <a href="#" class="button button--secondary button--beat">Conoce más </a>
+                </div>
             </div>
         </article>
-        <section class="section">
+        <section class="section" id="Servicios">
+            <div class="d-flex f-direction-column a-items-center  ">
+                <h1 class="hero__title c-primary m-b c-white">Servicios</h1>
+            </div>
             <div class="container g-layout g-layout--center g-layout--auto-fit-columns-lg g-4">
-                <a href="#" class="card card--overlay">
+                <a href="./Pages/Dashboard.html" class="card card--overlay">
                     <div class="card__body">
                         <img src="./assets/img/eco promera version.png" alt="Imagen Ecoexplorer"
-                        width="460" height="240" class="img img--background">
+                        width="426" height="240" class="img img--background2">
                         <ul class="list d-flex g-2">
                             <li class="badge badge--primary interactive interactive--sm">IA</li>
                             <li class="badge badge--primary interactive interactive--sm">Data</li>
                         </ul>
                         <h3 class="title title--xs c-white">DashBoard</h3>
-                        <p class="title text--sm c-white">Muestra de grafica de Datos</p>
+                        <p class="text text--sm c-white">Nuestra plataforma permite la recopilación y el análisis en tiempo real de parámetros críticos</p>
                     </div>
                 </a>
                 <a href="#" class="card card--overlay">
                     <div class="card__body">
-                        <img src="./assets/img/3.jfif" alt="Desarrollo Frontend" 
+                        <img src="./assets/img/3.jfif" alt="Tegnologias" 
                         width="426" height="240" class="img img--background2">
                             <ul class="list d-flex g-2">
                                     <li class="badge badge--primary interactive interactive--sm">IoT</li>
-                                    <li class="badge badge--primary interactive interactive--sm">Esp32</li>
-                                    <li class="badge badge--primary interactive interactive--sm">c++</li>
-                                    <li class="badge badge--primary interactive interactive--sm">SQL</li>
+                                    <li class="badge badge--primary interactive interactive--sm">code</li>
+                                    <li class="badge badge--primary interactive interactive--sm">Sensores</li>
                             </ul>
-                    <h3 class="title title--xs c-white">Tegnologias</h3>
-                    <p class="text text--sm c-white">Manejo de equipos tegnologicos  Software como Hardware </p>
+                    <h3 class="title title--xs c-white">Dispositivos</h3>
+                    <p class="text text--sm c-white">Manejo de equipos tegnologicos adaptables en cualquier sector de la region</p>
                     </div>
                 </a>
+            </div>
+        </section>
+        <section class="section" id="contact" >
+            <div class="container d-flex f-direction-column a-items-center g-4">
+                <h2 class="title m-b">Contáctenos</h2>
+                <form class="form d-flex f-direction-column g-2">
+                    <div class="d-flex g-2">
+                        <input type="text" name="name" placeholder="Nombre" class="form__input interactive f-1" required>
+                        <input type="text" name="last-name" placeholder="Apellido" class="form__input interactive f-1" required>
+                    </div>
+                    <input type="tel" name="phone" placeholder="Celular" maxlength="9" pattern="[0-9]{9}"
+                        class="form__input interactive" required>
+                    <input type="email" name="email" placeholder="email" class="form__input interactive" required>
+                    <input type="number" name="DNI" placeholder="DNI" min="00000000" max="99999999"
+                    class="form__input interactive" required>
+                    <input type="submit" value="Enviar" class="button button--outline-primary interactive">
+                </form>
             </div>
         </section>
     </main>
@@ -81,7 +135,7 @@
         <div class="container g-layout g-layout--center2 g-layout--auto-fit-columns g-2">
             <div class="d-flex f-direction-column g-2">
                 <a href="#">
-                <img src="./assets/img/hoja.svg" alt="Logo de EcoExplorer" width="24" height="40" class="img">
+                <img src="./assets/img/EcoexplorerLogo.svg" alt="Logo de EcoExplorer" width="100" height="70" class="img">
                 </a>
                 <h1 class="title title--sm interactive--lg c-alternative">RUST</h1>
                 <h2 class="interactive interactive--sm">Eduardo Ñaupa Yapura</h2>
@@ -102,7 +156,7 @@
                 <a href="https://github.com/Darkness15961">
                     <i class="bi bi-github"></i>
                 </a>
-                <a href="www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346">
+                <a href="https:www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346">
                     <i class="bi bi-linkedin"></i>
                 </a>
                 <a href="https://www.youtube.com/@eduardonaupayapura7418">
@@ -127,7 +181,7 @@
             <h2 class="interactive interactive--xs">
             Echo por:
             <a href="www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346" class="link interactive interactive--xs">
-                Eduardp Ñaupa
+                Eduardo Ñaupa
             </a>
             </h2>
         </div>

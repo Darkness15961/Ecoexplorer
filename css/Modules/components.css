@@ -17,7 +17,7 @@
       }
   
       &:nth-child(even) {
-        background-image: conic-gradient(from -20deg at -25% 100%, var(--primary-background) 90deg, var(--secondary-color));
+        background-image: conic-gradient(from -35deg at -25% 100%, var(--primary-background) 90deg, var(--secondary-color));
       }
     }
   }
@@ -35,8 +35,8 @@
 
 .hero__title {
     margin: 0;
-    font-size: clamp(2rem, 5vw, 4rem);
-    text-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) calc(var(--size) * 4) var(--primary-color);
+    font-size: clamp(2rem, 3vw, 4rem);
+    text-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) calc(var(--size) * 1) var(--primary-color);
 }
   
 .hero__paragraph {
@@ -48,12 +48,39 @@
     padding-block: calc(var(--size) * 16);
 }
   
+
 .list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-  
+
+
+.list--menu {
+  position: fixed;
+  width: 100%;
+  height: 100dvh;
+  inset: 0;
+  background-color: var(--light-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-duration);
+
+  &:target {
+    opacity: initial;
+    pointer-events: initial;
+  }
+
+  @media (width >=768px) {
+    position: initial;
+    width: initial;
+    height: initial;
+    background-color: initial;
+    opacity: initial;
+    pointer-events: initial;
+  }
+}
+
 .card {
     --primary-card-color: var(--shadow);
     border-radius: calc(var(--border-radius) * 2);
@@ -77,6 +104,7 @@
     background-color: var(--primary-background);
     text-decoration: none;
 }
+
   
 .card__body {
     display: flex;
@@ -85,6 +113,37 @@
     padding: calc(var(--size) * 4);
 }
   
+
+.card-data {
+  --primary-card-color: var(--shadow);
+  border-radius: calc(var(--border-radius) * 1);
+  box-shadow: calc(var(--size) * 0.25) calc(var(--size) * 0.5) var(--size) calc(var(--size) * 0.25) var(--primary-card-color);
+  overflow: hidden;
+  transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+
+  &:hover {
+    --primary-card-color: var(--secondary-color);
+    transform: scale(1.0625);
+  }
+}
+
+  
+.card-data__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size);
+  padding: calc(var(--size) * 4);
+}
+
+.card-header {
+  padding:.75rem 1.25rem;
+  margin-bottom:0;
+  background-color:var(--white-color);
+  border-bottom:1px solid var(--white-color);
+}
+
+
+
 .form {
     max-width: 512px;
 }
@@ -108,3 +167,16 @@
       }
     }
 }
+
+.chart-area {
+  position:relative;
+  height:20rem;
+}
+
+.row {
+  display:flex;
+  margin-right:0;
+  margin-left:0;
+
+}
+

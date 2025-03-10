@@ -41,3 +41,48 @@
 .c-alternative {
     color: var(--alternative-color);
 }
+
+.shadow {
+    box-shadow:0 .15rem 1.75rem 0 var(--secondary-color);
+}
+
+.py-3 {
+    padding-top:1rem;
+}
+
+.m-0 {
+    margin:0;
+}
+
+.font-weight-bold {
+    font-weight:700;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+.mb-4,.my-4{
+    margin-bottom: 1.5rem;
+}
+
+.flex-row {
+    flex-direction:row;
+}
+
+.align-items-center {
+    align-items:center;
+}
+
+.justify-content-between {
+    justify-content:space-between;
+}
+.m-b {
+    margin-bottom: 2rem;
+}
+
+@media (width >=768px) {
+    .md\:d-none {
+    display: none;
+    }
+}
+

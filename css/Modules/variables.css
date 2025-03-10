@@ -9,7 +9,7 @@
     --white-color: #FFFFFF;
     --neutral-950: #191B1C;
     --shadow: #F1F5F880;
-    --size: 0.21875rem;
+    --size: 0.21875rem; /*4px*/
     --element-size: 0.8rem;
     --transition-duration: 0.5s;
     --max-width: 1024px;

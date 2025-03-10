@@ -8,9 +8,10 @@
     display: flex;
 }
 
+
 .flexbox--centered-spaced {
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .flexbox--centered-spacing {
@@ -22,7 +23,7 @@
     flex-direction: column;
 
     @media (width >=768px) {
-      flex-direction: row;
+    flex-direction: row;
     }
 }
 
@@ -36,6 +37,13 @@
     place-content: center;
 }
 
+@media (width >= 768px) {
+    .md\:g-layout--1fr-1fr {
+    grid-template-columns: 1fr 1fr;
+    }
+}
+
+
 .g-layout--center2 {
     display: grid;
     place-content: center;
@@ -47,4 +55,18 @@
 
 .g-layout--auto-fit-columns-lg {
     grid-template-columns: repeat(auto-fit, minmax(calc(var(--size) * 80), 1fr));
+}
+
+.chart-pie{
+    position:relative;
+    height:15rem;
+    width:100%}
+    @media (min-width:768px)
+{
+    .chart-pie{
+        height:calc(20rem - 43px)}
+}
+
+.a-items-start {
+    align-items: flex-start;
 }
