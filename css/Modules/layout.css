@@ -70,3 +70,7 @@
 .a-items-start {
     align-items: flex-start;
 }
+
+.a-items-end {
+    align-items: flex-end;
+}
