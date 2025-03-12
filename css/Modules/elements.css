@@ -84,6 +84,12 @@ a.text-primary:focus,a.text-primary:hover{
     -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 69%);
 }
 
+
+.image-container_v{
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 50%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 55%);
+}
+
 .image-conEd {
     width: 100%;
     height: auto;

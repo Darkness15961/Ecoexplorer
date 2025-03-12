@@ -46,15 +46,48 @@
     </header>
     <main class="main">
         <article class="hero">
-            <div class="container g-layout g-layout--center md:g-layout--1fr-1fr ">
-                
+            <div class="container g-layout g-layout--center ">
+                <div class="d-flex f-direction-column ">
+                    <h1 class="hero__title">
+                    <span class="c-primary">Dispositivos </span></h1>
+                    <p class="a-items-start">
+                        Nuestros dispositivos están diseñados para el monitoreo ambiental en tiempo real,
+                        permitiendo la recolección de datos sobre la calidad del aire, temperatura, humedad, radiación 
+                        y otros factores clave. Estos datos son registrados
+                        para su análisis y visualización, facilitando la toma de decisiones informadas en temas ambientales
+                    </p>
+                </div>
             </div>
         </article>
         <section class="section">
-            <div class="container d-flex justify-content-between ">
-                
+            <div class="container g-layout g-layout--center md:g-layout--1fr-1fr g-4">
+                <div class="d-flex f-direction-column ">
+                    <h1 class="hero__title"> <span class="c-primary">EcoExplorer v1.0</span></h1>
+                    <p class="a-items-start">
+                        Solución compacta y funcional que permitiera la recolección 
+                        de datos esenciales.
+                    </p>
+                </div>
+                <img class="image-container"
+                    src="../assets/img/disv1.0.jpg"
+                    alt="EcoExplorer" width="620" height="550">
             </div>
         </section>
+        <section class="section">
+            <div class="container g-layout g-layout--center md:g-layout--1fr-1fr g-4">
+                <img class="image-container image-container_v"
+                    src="../assets/img/disv2.0.jpg"
+                    alt="EcoExplorer" width="620" height="550">
+                    
+                <div class="d-flex f-direction-column text-container">
+                    <h1 class="hero__title"> <span class="c-primary">EcoExplorer v2.0</span></h1>
+                    <p class="a-items-start">
+                        Mejoras en precisión, conectividad y autonomía. Este dispositivo optimiza la recolección 
+                        de datos esenciales y mejora la experiencia del usuario en la visualización e interpretación de la información.
+                    </p>
+                </div>
+            </div>
+        </section>        
     </main>
     <footer class="footer">
         <nav class="nav">
@@ -113,12 +146,5 @@
         </div>
         </nav>
     </footer>
-        <!-- Agregar Chart.js desde CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <!-- Enlace correcto al script de la gráfica -->
-        <script src="../js/areaChart.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
-        <script src="../js/pieChart.js"></script>    
 </body>
 </html>
