@@ -1,106 +1,91 @@
-// Definir variables globales para colores
-const COLORS = {
-    primary: "rgba(69, 170, 150, 1)",
-    background: "rgba(255,255,255)",
-    grid: "rgb(234, 236, 244)",
-    tooltipBg: "rgb(69, 170, 150)",
-    tooltipBorder: "#02eae3",
-    tooltipTitle: "#2ecc71 ",
-    tooltipText: "#e74c3c"
-};
+document.addEventListener('DOMContentLoaded', function () {
+  const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  const chartInstances = {};
 
-// Función para formatear números con separadores de miles y decimales
-function numberFormat(number, decimals = 0, decPoint = '.', thousandsSep = ',') {
-    number = (number + '').replace(',', '').replace(' ', '');
-    let n = !isFinite(+number) ? 0 : +number,
-        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-        s = '',
-        toFixedFix = (n, prec) => {
-            let k = Math.pow(10, prec);
-            return '' + Math.round(n * k) / k;
-        };
-    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
-    if (s[0].length > 3) {
-        s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, thousandsSep);
-    }
-    if ((s[1] || '').length < prec) {
-        s[1] = s[1] || '';
-        s[1] += new Array(prec - s[1].length + 1).join('0');
-    }
-    return s.join(decPoint);
-}
+  const ctxMap = {
+    'Temperatura': document.getElementById('chartTemperatura').getContext('2d'),
+    'Humedad': document.getElementById('chartHumedad').getContext('2d'),
+    'Gas': document.getElementById('chartGas').getContext('2d'),
+    'IndiceUV': document.getElementById('chartIndiceUV').getContext('2d'),
+    'Presion': document.getElementById('chartPresion').getContext('2d'),
+    'Sonido': document.getElementById('chartSonido').getContext('2d'),
+  };
 
-// Esperar a que el DOM cargue completamente antes de ejecutar el código
-document.addEventListener("DOMContentLoaded", function () {
-    const ctx = document.getElementById("myAreaChart");
-    if (!ctx) {
-        console.error("Elemento con ID 'myAreaChart' no encontrado.");
-        return;
-    }
+  function generateLabels(range) {
+    return range === 'Hoy'
+      ? Array.from({ length: 24 }, (_, i) => `${i}:00`)
+      : dias;
+  }
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-                label: "Earnings",
-                tension: 0.3,
-                backgroundColor: COLORS.background,
-                borderColor: COLORS.primary,
-                pointRadius: 3,
-                pointBackgroundColor: COLORS.primary,
-                pointBorderColor: COLORS.primary,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: COLORS.primary,
-                pointHoverBorderColor: COLORS.primary,
-                pointHitRadius: 10,
-                pointBorderWidth: 2,
-                data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000]
-            }]
+  async function fetchData(range, tipo) {
+    try {
+      const res = await fetch(`https://ecox.blocmin.com/api/get-data-format?tipo=${tipo}&rango=${range}`);
+      const data = await res.json();
+      return data;
+    } catch (e) {
+      console.error("Error fetching data:", e);
+      return [];
+    }
+  }
+
+  async function updateChart(tipo, range) {
+    const dataAPI = await fetchData(range, tipo);
+    const labels = generateLabels(range);
+    const dataPoints = dataAPI.map(item => item.promedio);
+
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: tipo,
+        data: dataPoints,
+        borderColor: '#3b82f6',
+        backgroundColor: '#3b82f6',
+        fill: false,
+        tension: 0.4
+      }]
+    };
+
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { display: false }
         },
-        options: {
-            maintainAspectRatio: false,
-            layout: {
-                padding: { left: 10, right: 25, top: 25, bottom: 0 }
-            },
-            scales: {
-                x: {
-                    grid: { display: false, drawBorder: false },
-                    ticks: { maxTicksLimit: 7 }
-                },
-                y: {
-                    ticks: {
-                        maxTicksLimit: 5,
-                        padding: 10,
-                        callback: value => '$' + numberFormat(value)
-                    },
-                    grid: {
-                        color: COLORS.grid,
-                        drawBorder: false,
-                        borderDash: [2]
-                    }
-                }
-            },
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    backgroundColor: COLORS.tooltipBg,
-                    bodyColor: COLORS.tooltipText,
-                    titleMarginBottom: 10,
-                    titleColor: COLORS.tooltipTitle,
-                    titleFont: { size: 14 },
-                    borderColor: COLORS.tooltipBorder,
-                    borderWidth: 1,
-                    padding: 15,
-                    displayColors: false,
-                    intersect: false,
-                    mode: 'index',
-                    caretPadding: 10,
-                    callbacks: {
-                        label: tooltipItem => `${tooltipItem.dataset.label}: $${numberFormat(tooltipItem.raw)}`
-                    }
-                }
-            }
+        x: {
+          grid: { display: true }
         }
+      }
+    };
+
+    if (chartInstances[tipo]) {
+      chartInstances[tipo].destroy();
+    }
+
+    chartInstances[tipo] = new Chart(ctxMap[tipo], {
+      type: 'line',
+      data: data,
+      options: options
     });
+  }
+
+  // Manejar eventos de cada botón
+  const rangeButtons = document.querySelectorAll('.btn-range');
+  rangeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tipo = btn.getAttribute('data-tipo');
+      const rango = btn.getAttribute('data-rango');
+
+      // Remueve clase active de otros botones del mismo tipo
+      const siblings = document.querySelectorAll(`.btn-range[data-tipo="${tipo}"]`);
+      siblings.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      updateChart(tipo, rango);
+    });
+  });
+
+  // Cargar TODAS las gráficas en "Hoy" al inicio
+  Object.keys(ctxMap).forEach(tipo => updateChart(tipo, 'Hoy'));
 });

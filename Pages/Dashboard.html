@@ -60,38 +60,107 @@
                     alt="EcoExplorer" width="620" height="550">
             </div>
         </article>
-        <section class="section">
-            <div class="container d-flex justify-content-between ">
-                <!-- Area Chart -->
-                <div class="card-data g-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header">
-                        <h6 class="text-primary m-0 ">Temperatura</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-data__body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pie Chart -->
-                <div class="card">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header">
-                        <h6 class="text-primary m-0">Revenue Sources</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card__body">
-                        <div class="chart-pie">
-                            <canvas id="myPieChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="DataGraph colorBack">
+  <div class="container">
+
+    <!-- TARJETA GENERADA POR CADA SENSOR -->
+    <div class="container g-4">
+      
+      <!-- Lista de sensores -->
+      <div class="card-data g-4">
+        <div class="card-header g-layout--center">
+          <h6 class="text-primary m-0">Temperatura (°C)</h6>
+          <div class="flexbox g-2">
+            <button class="btn-range" data-tipo="Temperatura" data-rango="Hoy">Hoy</button>
+            <button class="btn-range" data-tipo="Temperatura" data-rango="Semana">Semana</button>
+          </div>
+        </div>
+        <div class="card-data__body">
+          <div class="chart-area">
+            <canvas id="chartTemperatura"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-data g-4">
+        <div class="card-header g-layout--center">
+          <h6 class="text-primary m-0">Humedad (%)</h6>
+          <div class="flexbox g-2">
+            <button class="btn-range" data-tipo="Humedad" data-rango="Hoy">Hoy</button>
+            <button class="btn-range" data-tipo="Humedad" data-rango="Semana">Semana</button>
+          </div>
+        </div>
+        <div class="card-data__body">
+          <div class="chart-area">
+            <canvas id="chartHumedad"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-data g-4">
+        <div class="card-header g-layout--center">
+          <h6 class="text-primary m-0">Gas</h6>
+          <div class="flexbox g-2">
+            <button class="btn-range" data-tipo="Gas" data-rango="Hoy">Hoy</button>
+            <button class="btn-range" data-tipo="Gas" data-rango="Semana">Semana</button>
+          </div>
+        </div>
+        <div class="card-data__body">
+          <div class="chart-area">
+            <canvas id="chartGas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-data g-4">
+        <div class="card-header g-layout--center">
+          <h6 class="text-primary m-0">Índice UV</h6>
+          <div class="flexbox g-2">
+            <button class="btn-range" data-tipo="IndiceUV" data-rango="Hoy">Hoy</button>
+            <button class="btn-range" data-tipo="IndiceUV" data-rango="Semana">Semana</button>
+          </div>
+        </div>
+        <div class="card-data__body">
+          <div class="chart-area">
+            <canvas id="chartIndiceUV"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-data g-4">
+        <div class="card-header g-layout--center">
+          <h6 class="text-primary m-0">Presión (hPa)</h6>
+          <div class="flexbox g-2">
+            <button class="btn-range" data-tipo="Presion" data-rango="Hoy">Hoy</button>
+            <button class="btn-range" data-tipo="Presion" data-rango="Semana">Semana</button>
+          </div>
+        </div>
+        <div class="card-data__body">
+          <div class="chart-area">
+            <canvas id="chartPresion"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-data g-4">
+        <div class="card-header g-layout--center">
+          <h6 class="text-primary m-0">Sonido (dB)</h6>
+          <div class="flexbox g-2">
+            <button class="btn-range" data-tipo="Sonido" data-rango="Hoy">Hoy</button>
+            <button class="btn-range" data-tipo="Sonido" data-rango="Semana">Semana</button>
+          </div>
+        </div>
+        <div class="card-data__body">
+          <div class="chart-area">
+            <canvas id="chartSonido"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     </main>
     <footer class="footer">
         <nav class="nav">
@@ -132,30 +201,25 @@
         <nav class="nav">
         <div class="container flexbox flexbox--centered-spacing flexbox--responsive g-2">
             <h2 class="interactive interactive--xs">
-            <a href="www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346" class="link interactive interactive--xs">
+            <a href="https://www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346" class="link interactive interactive--xs">
                 Eduardo Ñaupa
             </a>
             &copy; 2025
-            <a href="www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346" class="link interactive interactive--sm">
+            <a href="https://www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346" class="link interactive interactive--sm">
                 EAP.
             </a>
             Todos los derechos reservados.
             </h2>
             <h2 class="interactive interactive--xs">
                 Made by:
-            <a href="www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346" class="link interactive interactive--xs">
+            <a href="https://www.linkedin.com/in/eduardo-ñaupa-yapura-a08285346" class="link interactive interactive--xs">
                 Eduardo
             </a>
             </h2>
         </div>
         </nav>
     </footer>
-        <!-- Agregar Chart.js desde CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <!-- Enlace correcto al script de la gráfica -->
-        <script src="../js/areaChart.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
-        <script src="../js/pieChart.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/areaChart.js"></script>
 </body>
 </html>
